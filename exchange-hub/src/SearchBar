@@ -2,19 +2,9 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 
 const SearchBar = () => {
-  const handleSearch = (event) => {
-    const searchTerm = event.target.value;
-    // Do something with the search term (e.g., filter data, make API requests)
-    console.log(searchTerm);
-  };
 
   return (
-    <TextField
-      label="Search"
-      variant="outlined"
-      onChange={handleSearch}
-      fullWidth
-    />
+    <TextField id="outlined-basic" label="Outlined" variant="outlined" />
   );
 };
 

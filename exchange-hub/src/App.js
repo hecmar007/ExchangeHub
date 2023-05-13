@@ -26,7 +26,7 @@ function App() {
         <Typography variant="h3"> ExchangeHub</Typography>
         <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', paddingTop: '15px' }} />
 
-        <Grid container spacing={2} style={{ paddingLeft: '5%', paddingTop: '30px' }}>
+        <Grid container spacing={2} style={{ paddingTop: '30px' }}>
           {products.map((product) => (
             <Grid item xs={12} sm={6} md={4} key={product.id} >
               <div onClick={() => handleProductClick(product.id)} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

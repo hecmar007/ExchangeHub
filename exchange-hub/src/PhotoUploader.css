@@ -1,0 +1,17 @@
+.dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dropzone p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .image-gallery-slide img {
+    max-height: 50px;
+    object-fit: contain;
+  }

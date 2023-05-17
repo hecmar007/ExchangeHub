@@ -1,15 +1,19 @@
-import './App.css';
+import { TextField, Typography, Grid, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import ResponsiveAppBar from './ResponsiveAppBar';
-import { TextField, Typography, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import FilterBar from './FilterBar';
 
-function App() {
+export default function SearchPage() {
 
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState('Ambdos');
 
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   const products = Array.from({ length: 9 }, (_, index) => ({
     id: index + 1,
@@ -28,19 +32,30 @@ function App() {
     }
   };
 
-
   return (
     <>
       <div style={{ position: 'sticky', top: 0, zIndex: 100 }}>
         <ResponsiveAppBar />
       </div>
-
       <div style={{ paddingTop: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Typography variant="h3"> ExchangeHub</Typography>
-        <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', marginTop: '15px', marginBottom:'15px' }}
+        <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', marginTop: '15px', marginBottom: '15px' }}
           onKeyPress={handleKeyPress}
           onChange={(event) => setSearchValue(event.target.value)} />
-        <Typography variant="h4"> Suggeriments personalitzats </Typography>
+        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", width:"90%" }}>
+          <FormControl style={{width:"130px"}}>
+            <InputLabel>Tipus de producte</InputLabel>
+            <Select
+              value={selectedOption}
+              onChange={handleChange}
+              label="Tipus de producte"
+            >
+              <MenuItem value="Article">Article</MenuItem>
+              <MenuItem value="Servei">Servei</MenuItem>
+              <MenuItem value="Ambdos">Ambdos</MenuItem>
+            </Select>
+          </FormControl>
+          <FilterBar />
+        </div>
         <Grid container spacing={2} style={{ paddingTop: '30px' }}>
           {products.map((product) => (
             <Grid item xs={12} sm={6} md={4} key={product.id} >
@@ -51,9 +66,7 @@ function App() {
             </Grid>
           ))}
         </Grid>
-
       </div>
     </>
   );
 }
-export default App;

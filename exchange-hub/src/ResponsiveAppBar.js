@@ -10,11 +10,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Serveis', 'Productes', 'Els meus anuncis', 'Perfil'];
+const pages = ['Xats', 'Perfil', 'Informació', 'Configuració'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -24,9 +26,20 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  const handleMenuItemClick = (page) => {
+    if(page.toLowerCase() === "xats") {
+      navigate("/Chat")
+    }
+    else if(page.toLowerCase() === "perfil") {
+      const query = '?personal=true&name=El teu perfil';
+      navigate(`/Perfil${query}`);
+    }
+    //navigate(`/${page.toLowerCase()}`);
+    handleCloseNavMenu();
+  };
 
   return (
-    <AppBar position="static" style={{background:'black'}}>
+    <AppBar position="static" style={{ background: 'black' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -77,7 +90,7 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -101,11 +114,16 @@ function ResponsiveAppBar() {
           >
             ExchangeHub
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: ' space-between' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex', justifyContent: 'space-between' },
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleMenuItemClick(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -117,4 +135,5 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
+
 export default ResponsiveAppBar;

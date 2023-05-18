@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react';
 import ResponsiveAppBar from './ResponsiveAppBar';
-import { TextField, Typography, Grid } from '@mui/material';
+import { TextField, Typography, Grid, Fab } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
     }
   };
 
+  const handleUpload = () => {
+    navigate('/PujarArticle')
+};
+
 
   return (
     <>
@@ -37,7 +42,7 @@ function App() {
 
       <div style={{ paddingTop: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <Typography variant="h3"> ExchangeHub</Typography>
-        <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', marginTop: '15px', marginBottom:'15px' }}
+        <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', marginTop: '15px', marginBottom: '15px' }}
           onKeyPress={handleKeyPress}
           onChange={(event) => setSearchValue(event.target.value)} />
         <Typography variant="h4"> Suggeriments personalitzats </Typography>
@@ -52,6 +57,12 @@ function App() {
           ))}
         </Grid>
 
+        <div style={{ position: 'sticky', bottom: 20, zIndex: 101 }}>
+          <Fab variant="extended" size="big" color="secondary" aria-label="Pujar producte" onClick={handleUpload}>
+            <AddCircleIcon sx={{ mr: 1 }} />
+            Pujar producte
+          </Fab>
+        </div>
       </div>
     </>
   );

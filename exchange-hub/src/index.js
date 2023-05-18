@@ -7,20 +7,25 @@ import reportWebVitals from './reportWebVitals';
 import Product from './Product';
 import Chat from './Chat';
 import PujarArticle from './PujarArticle'
+import Profile from './Profile';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
-  <Router>
-    <Routes>
-      <Route path="/" element={<App/>}/>
-      <Route path="/SearchPage" element={<SearchPage/>} />
-      <Route path="/Product" element={<Product/>} />
-      <Route path="/Chat" element={<Chat/>} />
-      <Route path="/PujarArticle" element={<PujarArticle/>} />
-    </Routes>
-  </Router>
+  <div style={{ backgroundColor: '#f9f9f9' }}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/SearchPage" element={<SearchPage />} />
+        <Route path="/Product" element={<Product />} />
+        <Route path="/Chat" element={<Chat />} />
+        <Route path="/PujarArticle" element={<PujarArticle />} />
+        <Route path='/Perfil' element={<Profile />} />
+      </Routes>
+    </Router>
+  </div>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

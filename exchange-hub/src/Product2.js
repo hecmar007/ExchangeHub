@@ -13,19 +13,19 @@ export default function SearchPage() {
     const [userName, setUserName] = useState("Josep Parafita")
 
     const [images, setImages] = useState([{
-        original: '/jaqueta3.jpeg',
+        original: '/diccionari3.jpeg',
         thumbnail: 'https://picsum.photos/id/1018/250/150/',
     },
     {
-        original: '/jaqueta2.jpeg',
+        original: '/diccionari2.jpeg',
         thumbnail: 'https://picsum.photos/id/1015/250/150/',
     },
     {
-        original: '/jaqueta1.jpeg',
+        original: '/diccionari1.jpeg',
         thumbnail: 'https://picsum.photos/id/1019/250/150/',
     },])
 
-    const [tags, setTags] = useState(["Esquí", "Esport", "Hivern"])
+    const [tags, setTags] = useState(["Diccionari","Català","Grec"])
 
     const handleProfileClick = () => {
         const query = '?name=' + userName;
@@ -43,7 +43,7 @@ export default function SearchPage() {
                 <ResponsiveAppBar />
             </div>
             <div style={{ display: 'flex', flexDirection: "column", alignItems: "center", marginTop: '10px' }}>
-                <Typography variant="h2">Jaqueta esqui</Typography>
+                <Typography variant="h2">Diccionari grec - català</Typography>
                 <div style={{ display: 'flex', flexDirection: "row", alignItems: "center" }}>
                     <div style={{ width: "50%", margin: "15px" }}>
                         <ImageGallery
@@ -66,7 +66,7 @@ export default function SearchPage() {
                     </div>
                     <div style={{ width: "50%", margin: "15px", alignSelf: "flex-start" }}>
                         <div style={{display:"flex", flexDirection:"row"}}>
-                            <Typography variant='substitle2' style={{paddingRight: "15px"}}>Etiquetes: </Typography>
+                            <Typography variant='subtitle2' style={{paddingRight: "15px"}}>Etiquetes: </Typography>
                             {tags.map((tag) => (
                                 <Chip
                                     key={tag}
@@ -76,7 +76,7 @@ export default function SearchPage() {
                                 />
                             ))}
                         </div>
-                        <Typography style={{ marginTop: "15px" }} variant="subtitle1">  Abric esquí North Face talla M totalment nou amb etiquetes. 3 abrics en 1. Es pot utilitzar complet, part exterior o abric de plomes. Triclimate+Dryvent </Typography>
+                        <Typography style={{ marginTop: "15px" }} variant="subtitle1"> En bon estat. Intercanvio per algun diccionari Català - Hebreu </Typography>
                     </div>
                 </div>
             </div>

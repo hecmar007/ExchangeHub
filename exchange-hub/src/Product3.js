@@ -13,19 +13,15 @@ export default function SearchPage() {
     const [userName, setUserName] = useState("Josep Parafita")
 
     const [images, setImages] = useState([{
-        original: '/jaqueta3.jpeg',
+        original: '/bici1.jpeg',
         thumbnail: 'https://picsum.photos/id/1018/250/150/',
     },
     {
-        original: '/jaqueta2.jpeg',
+        original: '/bici2.jpeg',
         thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: '/jaqueta1.jpeg',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
     },])
 
-    const [tags, setTags] = useState(["Esquí", "Esport", "Hivern"])
+    const [tags, setTags] = useState(["Bicicleta","Esport"])
 
     const handleProfileClick = () => {
         const query = '?name=' + userName;
@@ -43,7 +39,7 @@ export default function SearchPage() {
                 <ResponsiveAppBar />
             </div>
             <div style={{ display: 'flex', flexDirection: "column", alignItems: "center", marginTop: '10px' }}>
-                <Typography variant="h2">Jaqueta esqui</Typography>
+                <Typography variant="h2">Bicicleta passeig</Typography>
                 <div style={{ display: 'flex', flexDirection: "row", alignItems: "center" }}>
                     <div style={{ width: "50%", margin: "15px" }}>
                         <ImageGallery
@@ -76,7 +72,7 @@ export default function SearchPage() {
                                 />
                             ))}
                         </div>
-                        <Typography style={{ marginTop: "15px" }} variant="subtitle1">  Abric esquí North Face talla M totalment nou amb etiquetes. 3 abrics en 1. Es pot utilitzar complet, part exterior o abric de plomes. Triclimate+Dryvent </Typography>
+                        <Typography style={{ marginTop: "15px" }} variant="subtitle1">  Bicicleta passeig Perless amb marxes. No busco res concret, obert a ofertes, productes i serveis. </Typography>
                     </div>
                 </div>
             </div>

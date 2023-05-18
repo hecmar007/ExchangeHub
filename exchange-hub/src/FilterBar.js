@@ -29,7 +29,7 @@ function FilterBar() {
         />
       ))}
       <TextField
-        label="Afegir etiqueta"
+        label="Afegir etiquetes"
         variant="outlined"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

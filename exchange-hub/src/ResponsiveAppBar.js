@@ -34,6 +34,9 @@ function ResponsiveAppBar() {
       const query = '?personal=true&name=El teu perfil';
       navigate(`/Perfil${query}`);
     }
+    else {
+      navigate('/BlankPage')
+    }
     //navigate(`/${page.toLowerCase()}`);
     handleCloseNavMenu();
   };

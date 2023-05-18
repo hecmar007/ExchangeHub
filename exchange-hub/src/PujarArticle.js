@@ -40,7 +40,7 @@ export default function PujarArticle() {
                 <ResponsiveAppBar />
             </div>
             {isProductUploaded ? (
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", height:"100vh" }}>
                     <Typography variant="h5">PRODUCTE PUJAT CORRECTAMENT!</Typography>
                     <div style={{marginTop:"15px"}}>
                         <Button variant="contained" style={{ background: "black" }} onClick={handleHome}>TORNAR A l'INICI</Button>

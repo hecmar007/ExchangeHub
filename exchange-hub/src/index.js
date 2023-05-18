@@ -5,10 +5,13 @@ import App from './App';
 import SearchPage from './SearchPage';
 import reportWebVitals from './reportWebVitals';
 import Product from './Product';
+import Product2 from './Product2';
+import Product3 from './Product3';
 import Chat from './Chat';
 import PujarArticle from './PujarArticle'
 import Profile from './Profile';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import BlankPage from './BlankPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,10 +21,14 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/SearchPage" element={<SearchPage />} />
-        <Route path="/Product" element={<Product />} />
+        <Route path="/Product1" element={<Product />} />
+        <Route path="/Product2" element={<Product2 />} />
+        <Route path="/Product3" element={<Product3 />} />
         <Route path="/Chat" element={<Chat />} />
         <Route path="/PujarArticle" element={<PujarArticle />} />
         <Route path='/Perfil' element={<Profile />} />
+        <Route path='/BlankPage' element={<BlankPage />} />
+
       </Routes>
     </Router>
   </div>

@@ -14,11 +14,12 @@ import {
   CardMedia,
   CardContent,
   TextField,
-  Button,
+  Button
 } from '@mui/material';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import { useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -77,7 +78,7 @@ const ProfilePage = () => {
   });
 
   // Description state
-  const [description, setDescription] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget leo pellentesque, gravida risus ut, rutrum est. Nunc quis odio id metus ultrices tincidunt. Nulla vel lobortis mauris, vitae faucibus nulla.');
+  const [description, setDescription] = useState("Hola! El meu nom és Josep. Soc un pare biòleg amant de la naturalesa. Visc a Barcelona però sempre que puc m'escapo amb la meva família als Pirineus i faig tot tipus d'activitat. M'interessa tot tipus d'equipament relacionat amb activitats a la muntanya.");
 
   // Handle form input change
   const handleInputChange = (event) => {
@@ -85,6 +86,10 @@ const ProfilePage = () => {
       ...userReview,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleUpload = () => {
+    navigate('/PujarArticle')
   };
 
   // Handle form submission
@@ -107,8 +112,8 @@ const ProfilePage = () => {
   };
 
   const handleUserClick = (name) => {
-    const query = '?name='+name;
-        navigate(`/Perfil${query}`)
+    const query = '?name=' + name;
+    navigate(`/Perfil${query}`)
   }
 
   // Handle description change
@@ -145,7 +150,7 @@ const ProfilePage = () => {
                   fullWidth
                 />
               ) : (
-                <Typography variant="body1" sx={{ textAlign: 'justify' }}>
+                <Typography variant="subtitle1" sx={{ textAlign: 'justify' }}>
                   {description}
                 </Typography>
               )}
@@ -185,11 +190,11 @@ const ProfilePage = () => {
           {!queryParams.personal ? (
             <>
               <Box sx={{ marginTop: '2rem' }}>
-                <Typography variant="h5">Leave a Review</Typography>
+                <Typography variant="h5">Deixa una ressenya</Typography>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     name="user"
-                    label="Your Name"
+                    label="El teu nom"
                     value={userReview.user}
                     onChange={handleInputChange}
                     margin="normal"
@@ -204,8 +209,8 @@ const ProfilePage = () => {
                     }
                   />
                   <TextField
-                    name="comment"
-                    label="Comment"
+                    name="comentari"
+                    label="Comentari"
                     value={userReview.comment}
                     onChange={handleInputChange}
                     margin="normal"
@@ -225,7 +230,14 @@ const ProfilePage = () => {
                 </form>
               </Box>
             </>
-          ) : null}
+          ) : (
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Button variant="outlined" size="big" color="secondary" aria-label="Pujar producte" onClick={handleUpload}>
+                <AddCircleIcon sx={{ mr: 1 }} />
+                Pujar producte
+              </Button>
+            </div>
+          )}
 
           {/* User's products gallery */}
           <Typography variant="h5" sx={{ marginTop: '2rem' }}>

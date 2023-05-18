@@ -5,27 +5,82 @@ import { TextField, Typography, Grid, Fab } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  typography: {
+    subtitle1: {
+      fontFamily: 'Montserrat',
+      fontSize: '2rem',
+      fontWeight: 700,
+    },
+  },
+});
 
 function App() {
 
   const navigate = useNavigate();
+  //const location = useLocation();
   const [searchValue, setSearchValue] = useState('');
 
 
-  const products = Array.from({ length: 9 }, (_, index) => ({
-    id: index + 1,
-    name: "Placeholder",
-    imageUrl: "https://via.placeholder.com/300",
-  }));
+  const products = [
+    {
+      id: 1,
+      name: "Jaqueta esqui",
+      imageUrl: "/jaqueta300.jpeg",
+    },
+    {
+      id: 2,
+      name: "Diccionari grec",
+      imageUrl: "/diccionari300.jpeg",
+    },
+    {
+      id: 3,
+      name: "Bicicleta",
+      imageUrl: "/bicicleta300.jpg",
+    },
+    {
+      id: 4,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }, 
+    {
+      id: 5,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }, 
+    {
+      id: 6,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }, 
+    {
+      id: 7,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }, 
+    {
+      id: 8,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }, 
+    {
+      id: 9,
+      name: "Placeholder",
+      imageUrl: "https://via.placeholder.com/300",
+    }
+  ];
 
   const handleProductClick = (productId) => {
-    navigate('/Product')
+    if(productId < 4)
+      navigate('/Product'+productId)
   };
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      navigate('/SearchPage');
+      navigate(`/SearchPage?query=${encodeURIComponent(searchValue)}`);
     }
   };
 

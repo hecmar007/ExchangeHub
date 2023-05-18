@@ -22,7 +22,7 @@ export default function PhotoUploader({images, setImages}) {
                 {({ getRootProps, getInputProps }) => (
                     <div {...getRootProps()} className="dropzone">
                         <input {...getInputProps()} />
-                        <p>Arrastra i deixa anar imatges aquí, o fes click per sel·lecionar-les</p>
+                        <p>Arrossega i deixa anar imatges aquí, o fes click per sel·leccionar-les</p>
                     </div>
                 )}
             </Dropzone>

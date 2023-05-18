@@ -150,7 +150,7 @@ const ProfilePage = () => {
                   fullWidth
                 />
               ) : (
-                <Typography variant="subtitle1" sx={{ textAlign: 'justify' }}>
+                <Typography variant="body1" sx={{ textAlign: 'justify' }}>
                   {description}
                 </Typography>
               )}
@@ -209,7 +209,7 @@ const ProfilePage = () => {
                     }
                   />
                   <TextField
-                    name="comentari"
+                    name="comment"
                     label="Comentari"
                     value={userReview.comment}
                     onChange={handleInputChange}

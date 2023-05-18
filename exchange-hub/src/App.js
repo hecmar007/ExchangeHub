@@ -15,6 +15,11 @@ const theme = createTheme({
       fontWeight: 700,
     },
   },
+  palette: {
+    main: {
+      secondary: '#00416A', // Replace 'red' with your desired color
+    },
+  },
 });
 
 function App() {
@@ -44,27 +49,27 @@ function App() {
       id: 4,
       name: "Placeholder",
       imageUrl: "https://via.placeholder.com/300",
-    }, 
+    },
     {
       id: 5,
       name: "Placeholder",
       imageUrl: "https://via.placeholder.com/300",
-    }, 
+    },
     {
       id: 6,
       name: "Placeholder",
       imageUrl: "https://via.placeholder.com/300",
-    }, 
+    },
     {
       id: 7,
       name: "Placeholder",
       imageUrl: "https://via.placeholder.com/300",
-    }, 
+    },
     {
       id: 8,
       name: "Placeholder",
       imageUrl: "https://via.placeholder.com/300",
-    }, 
+    },
     {
       id: 9,
       name: "Placeholder",
@@ -73,8 +78,8 @@ function App() {
   ];
 
   const handleProductClick = (productId) => {
-    if(productId < 4)
-      navigate('/Product'+productId)
+    if (productId < 4)
+      navigate('/Product' + productId)
   };
 
   const handleKeyPress = (event) => {
@@ -86,11 +91,11 @@ function App() {
 
   const handleUpload = () => {
     navigate('/PujarArticle')
-};
+  };
 
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div style={{ position: 'sticky', top: 0, zIndex: 100 }}>
         <ResponsiveAppBar />
       </div>
@@ -119,7 +124,7 @@ function App() {
           </Fab>
         </div>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 export default App;

@@ -7,7 +7,7 @@ import FilterBar from './FilterBar';
 import { useNavigate } from 'react-router-dom';
 
 export default function PujarArticle() {
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState(true);
     const [text, setText] = useState('');
     const [images, setImages] = useState([]);
     const [selectedOption, setSelectedOption] = useState('');

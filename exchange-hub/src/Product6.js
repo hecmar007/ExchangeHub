@@ -14,20 +14,16 @@ export default function SearchPage() {
 
     const [images, setImages] = useState([
         {
-            original: '/diccionari1.jpeg',
+            original: '/tronos1.jpeg',
             thumbnail: 'https://picsum.photos/id/1018/250/150/',
         },
         {
-            original: '/diccionari2.jpeg',
+            original: '/tronos2.jpeg',
             thumbnail: 'https://picsum.photos/id/1015/250/150/',
-        },
-        {
-            original: '/diccionari3.jpeg',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
         },
     ]);
 
-    const [tags, setTags] = useState(["Llibre", "Diccionari", "Classiques"]);
+    const [tags, setTags] = useState(["Llibre", "Fantasia"]);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     const handleProfileClick = () => {
@@ -60,7 +56,7 @@ export default function SearchPage() {
                 <ResponsiveAppBar />
             </div>
             <div style={{ display: 'flex', flexDirection: "column", alignItems: "center", marginTop: '10px' }}>
-                <Typography variant="h2">Diccionari grec-català</Typography>
+                <Typography variant="h2">Llibre juego de tronos</Typography>
                 <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', alignItems: "center" }}>
                     <div style={{ width: "100%", margin: "15px" }}>
                         <ImageGallery
@@ -95,7 +91,7 @@ export default function SearchPage() {
                                 />
                             ))}
                         </div>
-                        <Typography style={{ marginTop: "15px", marginRight: "15px" }} variant="subtitle1">En bon estat. Intercanvio per algun diccionari Català - Hebreu</Typography>
+                        <Typography style={{ marginTop: "15px" }} variant="subtitle1">Primer llibre de la saga "Cancion de hielo y fuego". La portada està una mica trencada per la part superior, però els continguts en perfecte estat. Disposat a qualsevol tipus de canvi.</Typography>
                     </div>
                 </div>
             </div>

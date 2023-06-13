@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 import Product from './Product';
 import Product2 from './Product2';
 import Product3 from './Product3';
+import Product4 from './Product4'
+import Product5 from './Product5'
+import Product6 from './Product6'
 import Chat from './Chat';
 import PujarArticle from './PujarArticle'
 import Profile from './Profile';
@@ -24,6 +27,9 @@ root.render(
         <Route path="/Product1" element={<Product />} />
         <Route path="/Product2" element={<Product2 />} />
         <Route path="/Product3" element={<Product3 />} />
+        <Route path="/Product4" element={<Product4 />} />
+        <Route path="/Product5" element={<Product5 />} />
+        <Route path="/Product6" element={<Product6 />} />
         <Route path="/Chat" element={<Chat />} />
         <Route path="/PujarArticle" element={<PujarArticle />} />
         <Route path='/Perfil' element={<Profile />} />

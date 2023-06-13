@@ -19,17 +19,9 @@ export default function SearchPage() {
     setSelectedOption(event.target.value);
   };
 
-  const [initialProducts, setInitialProducts] = useState(Array.from({ length: 5 }, (_, index) => ({
-    id: index + 2,
-    name: "Placeholder",
-    imageUrl: "https://via.placeholder.com/300",
-  })))
+  const [initialProducts, setInitialProducts] = useState([])
 
-  const [products, setProducts] = useState(Array.from({ length: 5 }, (_, index) => ({
-    id: index + 2,
-    name: "Placeholder",
-    imageUrl: "https://via.placeholder.com/300",
-  })))
+  const [products, setProducts] = useState([])
 
   const handleProductClick = (productId) => {
     if (productId === "Jaqueta esqui")
@@ -86,8 +78,8 @@ export default function SearchPage() {
       const updatedProducts = [
         {
           id: 0,
-          name: "Placeholder",
-          imageUrl: "https://via.placeholder.com/300",
+          name: "No s'han trobat resultats",
+          imageUrl: "",
         },
         ...initialProducts
       ];
@@ -100,7 +92,7 @@ export default function SearchPage() {
       <div style={{ position: 'sticky', top: 0, zIndex: 100 }}>
         <ResponsiveAppBar />
       </div>
-      <div style={{ paddingTop: "20px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div style={{ paddingTop: "20px", display: "flex", flexDirection: "column", alignItems: "center", height:"100vh" }}>
         <TextField id="outlined-basic" label="Search" variant='outlined' style={{ width: '50%', marginTop: '15px', marginBottom: '15px' }}
           onKeyPress={handleKeyPress}
           onChange={(event) => setSearchValue(event.target.value)} />

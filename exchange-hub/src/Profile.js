@@ -46,23 +46,18 @@ const ProfilePage = () => {
   const products = [
     {
       id: 1,
-      name: 'Product 1',
-      imageUrl: 'https://via.placeholder.com/300',
+      name: "Jaqueta esqui",
+      imageUrl: "/jaqueta300.jpeg",
     },
     {
       id: 2,
-      name: 'Product 2',
-      imageUrl: 'https://via.placeholder.com/300',
+      name: "Diccionari grec",
+      imageUrl: "/diccionari300.jpeg",
     },
     {
       id: 3,
-      name: 'Product 3',
-      imageUrl: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 4,
-      name: 'Product 4',
-      imageUrl: 'https://via.placeholder.com/300',
+      name: "Bicicleta",
+      imageUrl: "/bicicleta300.jpg",
     },
   ];
 
@@ -108,7 +103,7 @@ const ProfilePage = () => {
   };
 
   const handleProductClick = (productId) => {
-    navigate('/Product')
+    navigate(`/Product${productId}`)
   };
 
   const handleUserClick = (name) => {
@@ -138,9 +133,9 @@ const ProfilePage = () => {
           </Box>
           <Divider sx={{ margin: '1rem 0' }} />
 
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {/* Description box */}
-            <div style={{ flex: 2, padding: '15px' }}>
+            <div>
               <Typography variant="h5">Descripció</Typography>
               {queryParams.personal ? (
                 <TextField
@@ -157,13 +152,13 @@ const ProfilePage = () => {
             </div>
 
             {/* Overall user rating */}
-            <div style={{ flex: 1, padding: '15px' }}>
+            <div>
               <Typography variant="h5">Rating</Typography>
               <Rating value={overallRating} readOnly />
             </div>
 
             {/* Other user's reviews */}
-            <div style={{ flex: 2, padding: '15px' }}>
+            <div>
               <Typography variant="h5">Reviews d'altres usuaris</Typography>
               <List>
                 {reviews.map((review) => (
@@ -186,10 +181,9 @@ const ProfilePage = () => {
                 ))}
               </List>
             </div>
-          </div>
-          {!queryParams.personal ? (
-            <>
-              <Box sx={{ marginTop: '2rem' }}>
+
+            {!queryParams.personal && (
+              <div>
                 <Typography variant="h5">Deixa una ressenya</Typography>
                 <form onSubmit={handleSubmit}>
                   <TextField
@@ -228,40 +222,42 @@ const ProfilePage = () => {
                     Submit
                   </Button>
                 </form>
-              </Box>
-            </>
-          ) : (
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button variant="outlined" size="big" color="secondary" aria-label="Pujar producte" onClick={handleUpload}>
-                <AddCircleIcon sx={{ mr: 1 }} />
-                Pujar producte
-              </Button>
-            </div>
-          )}
+              </div>
+            )}
 
-          {/* User's products gallery */}
-          <Typography variant="h5" sx={{ marginTop: '2rem' }}>
-            Productes penjats
-          </Typography>
-          <Grid container spacing={2}>
-            {products.map((product) => (
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={4}
-                key={product.id}
-                onClick={() => handleProductClick(product.id)}
-              >
-                <Card>
-                  <CardMedia component="img" image={product.imageUrl} alt={product.name} />
-                  <CardContent>
-                    <Typography variant="subtitle1">{product.name}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+            {queryParams.personal && (
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Button variant="outlined" size="large" color="secondary" aria-label="Pujar producte" onClick={handleUpload}>
+                  <AddCircleIcon sx={{ mr: 1 }} />
+                  Pujar producte
+                </Button>
+              </div>
+            )}
+
+            {/* User's products gallery */}
+            <Typography variant="h5" sx={{ marginTop: '2rem' }}>
+              Productes penjats
+            </Typography>
+            <Grid container spacing={2}>
+              {products.map((product) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  key={product.id}
+                  onClick={() => handleProductClick(product.id)}
+                >
+                  <Card>
+                    <CardMedia component="img" image={product.imageUrl} alt={product.name} />
+                    <CardContent>
+                      <Typography variant="subtitle1">{product.name}</Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+          </div>
         </Box>
       </div>
     </>

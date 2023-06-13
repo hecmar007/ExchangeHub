@@ -47,39 +47,23 @@ function App() {
     },
     {
       id: 4,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
+      name: "Dissenyo logotips",
+      imageUrl: "/servei300.jpg",
     },
     {
       id: 5,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
+      name: "Tenda camping",
+      imageUrl: "/tenda300.jpg",
     },
     {
       id: 6,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
-    },
-    {
-      id: 7,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
-    },
-    {
-      id: 8,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
-    },
-    {
-      id: 9,
-      name: "Placeholder",
-      imageUrl: "https://via.placeholder.com/300",
+      name: "Juego de tronos",
+      imageUrl: "/tronos300.jpeg",
     }
   ];
 
   const handleProductClick = (productId) => {
-    if (productId < 4)
-      navigate('/Product' + productId)
+    navigate('/Product' + productId)
   };
 
   const handleKeyPress = (event) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -9,33 +9,50 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SearchPage() {
 
-    const navigate = useNavigate()
-    const [userName, setUserName] = useState("Josep Parafita")
+    const navigate = useNavigate();
+    const [userName, setUserName] = useState("Josep Parafita");
 
-    const [images, setImages] = useState([{
-        original: '/jaqueta3.jpeg',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
-    },
-    {
-        original: '/jaqueta2.jpeg',
-        thumbnail: 'https://picsum.photos/id/1015/250/150/',
-    },
-    {
-        original: '/jaqueta1.jpeg',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
-    },])
+    const [images, setImages] = useState([
+        {
+            original: '/jaqueta3.jpeg',
+            thumbnail: 'https://picsum.photos/id/1018/250/150/',
+        },
+        {
+            original: '/jaqueta2.jpeg',
+            thumbnail: 'https://picsum.photos/id/1015/250/150/',
+        },
+        {
+            original: '/jaqueta1.jpeg',
+            thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        },
+    ]);
 
-    const [tags, setTags] = useState(["Esquí", "Esport", "Hivern"])
+    const [tags, setTags] = useState(["Esquí", "Esport", "Hivern"]);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     const handleProfileClick = () => {
         const query = '?name=' + userName;
-        navigate(`/Perfil${query}`)
-    }
+        navigate(`/Perfil${query}`);
+    };
 
     const handleInterestClick = () => {
         const query = '?newName=' + userName;
-        navigate(`/Chat${query}`)
-    }
+        navigate(`/Chat${query}`);
+    };
+
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+        // Add the event listener when the component mounts
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <>
@@ -44,8 +61,8 @@ export default function SearchPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: "column", alignItems: "center", marginTop: '10px' }}>
                 <Typography variant="h2">Jaqueta esqui</Typography>
-                <div style={{ display: 'flex', flexDirection: "row", alignItems: "center" }}>
-                    <div style={{ width: "50%", margin: "15px" }}>
+                <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', alignItems: "center" }}>
+                    <div style={{ width: "100%", margin: "15px" }}>
                         <ImageGallery
                             showThumbnails={false}
                             showPlayButton={false}
@@ -58,15 +75,17 @@ export default function SearchPage() {
                                 height: '100%',
                             }}
                         />
-                        <div style={{ marginTop: "15px" }} onClick={handleProfileClick}>
-                            <UserCard name={userName}
+                        <div style={{ marginTop: "15px", maxWidth: "250px" }} onClick={handleProfileClick}>
+                            <UserCard
+                                name={userName}
                                 profilePicture="https://example.com/profile.jpg"
-                                rating={4} />
+                                rating={4}
+                            />
                         </div>
                     </div>
-                    <div style={{ width: "50%", margin: "15px", alignSelf: "flex-start" }}>
-                        <div style={{display:"flex", flexDirection:"row"}}>
-                            <Typography variant='substitle2' style={{paddingRight: "15px"}}>Etiquetes: </Typography>
+                    <div style={{ width: "100%", margin: "15px", alignSelf: "flex-start" }}>
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                            <Typography variant='substitle2' style={{ paddingRight: "15px" }}>Etiquetes: </Typography>
                             {tags.map((tag) => (
                                 <Chip
                                     key={tag}
@@ -76,7 +95,7 @@ export default function SearchPage() {
                                 />
                             ))}
                         </div>
-                        <Typography style={{ marginTop: "15px" }} variant="subtitle1">  Abric esquí North Face talla M totalment nou amb etiquetes. 3 abrics en 1. Es pot utilitzar complet, part exterior o abric de plomes. Triclimate+Dryvent </Typography>
+                        <Typography style={{ marginTop: "15px", marginRight: "25px" }} variant="subtitle1">Abric esquí North Face talla M totalment nou amb etiquetes. 3 abrics en 1. Es pot utilitzar complet, part exterior o abric de plomes. Triclimate+Dryvent</Typography>
                     </div>
                 </div>
             </div>

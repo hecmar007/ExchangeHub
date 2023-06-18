@@ -40,6 +40,16 @@ const Chat = () => {
         }
     };
 
+    useEffect(() => {
+        // Add the event listener when the component mounts
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const handleNavigateUser = () => {
         const query = '?name=' + selectedMenuItem;
         navigate(`/Perfil${query}`);

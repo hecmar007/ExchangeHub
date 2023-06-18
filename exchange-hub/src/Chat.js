@@ -69,7 +69,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Martí" src={`/profile-pictures/Marti.jpg`}>
+                                        <Avatar alt="Martí" src={`/profile-pictures/Martí.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Martí</Typography>
@@ -103,7 +103,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Héctor" src={`/profile-pictures/Hector.jpg`}>
+                                        <Avatar alt="Héctor" src={`/profile-pictures/Héctor.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Héctor</Typography>
@@ -123,7 +123,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Martí" src={`/profile-pictures/Marti.jpg`}>
+                                        <Avatar alt="Martí" src={`/profile-pictures/Martí.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Martí</Typography>
@@ -157,7 +157,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Héctor" src={`/profile-pictures/Hector.jpg`}>
+                                        <Avatar alt="Héctor" src={`/profile-pictures/Héctor.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Héctor</Typography>
@@ -174,7 +174,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt={queryParams.newName} src={`/profile-pictures/Josep.jpg`}>
+                                        <Avatar alt={queryParams.newName} src={`/profile-pictures/Josep Parafita.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>{queryParams.newName}</Typography>

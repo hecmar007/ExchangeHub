@@ -40,6 +40,10 @@ const Chat = () => {
         }
     };
 
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+    };
+
     useEffect(() => {
         // Add the event listener when the component mounts
         window.addEventListener('resize', handleResize);

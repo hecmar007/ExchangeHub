@@ -123,7 +123,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Martí" src={`/profile-pictures/Martí.jpg`}>
+                                        <Avatar alt="Martí" src={`/profile-pictures/Marti.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Martí</Typography>
@@ -157,44 +157,10 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt="Héctor" src={`/profile-pictures/Héctor.jpg`}>
+                                        <Avatar alt="Héctor" src={`/profile-pictures/Hector.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>Héctor</Typography>
-                                    </MenuItem>
-                                    <MenuItem
-                                        onClick={() => handleSelectItem('Jordi')}
-                                        style={{
-                                            padding: '10px 16px',
-                                            fontSize: '16px',
-                                            fontWeight: '500',
-                                            backgroundColor: selectedMenuItem === 'Jordi' ? '#f1f1f1' : 'inherit',
-                                            '&:hover': {
-                                                backgroundColor: '#f1f1f1',
-                                            },
-                                        }}
-                                    >
-                                        <Avatar alt="Jordi" src={`/profile-pictures/Jordi.jpg`}>
-                                            <AccountCircle />
-                                        </Avatar>
-                                        <Typography style={{ marginLeft: '10px' }}>Jordi</Typography>
-                                    </MenuItem>
-                                    <MenuItem
-                                        onClick={() => handleSelectItem('Mireia')}
-                                        style={{
-                                            padding: '10px 16px',
-                                            fontSize: '16px',
-                                            fontWeight: '500',
-                                            backgroundColor: selectedMenuItem === 'Mireia' ? '#f1f1f1' : 'inherit',
-                                            '&:hover': {
-                                                backgroundColor: '#f1f1f1',
-                                            },
-                                        }}
-                                    >
-                                        <Avatar alt="Mireia" src={`/profile-pictures/Mireia.jpg`}>
-                                            <AccountCircle />
-                                        </Avatar>
-                                        <Typography style={{ marginLeft: '10px' }}>Mireia</Typography>
                                     </MenuItem>
                                     <MenuItem
                                         onClick={() => handleSelectItem('' + queryParams.newName)}
@@ -208,7 +174,7 @@ const Chat = () => {
                                             },
                                         }}
                                     >
-                                        <Avatar alt={queryParams.newName} src={`/profile-pictures/${queryParams.newName}.jpg`}>
+                                        <Avatar alt={queryParams.newName} src={`/profile-pictures/Josep.jpg`}>
                                             <AccountCircle />
                                         </Avatar>
                                         <Typography style={{ marginLeft: '10px' }}>{queryParams.newName}</Typography>

@@ -12,6 +12,7 @@ const Chat = () => {
     const location = useLocation();
     const queryParams = queryString.parse(location.search);
     const navigate = useNavigate();
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         if (queryParams.newName !== undefined) handleSelectItem("" + queryParams.newName);

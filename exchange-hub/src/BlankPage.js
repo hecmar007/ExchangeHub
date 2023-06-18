@@ -10,6 +10,7 @@ export default function BlankPage() {
             <Typography variant="h3">
                 POLÍTICA DE PRIVACITAT
             </Typography>
+            
                 Aquesta política de privadesa descriu com es recopila, utilitza i protegeix la informació personal dels usuaris en la nostra pàgina d'objectes de segona mà. Valorem la seva privadesa i ens comprometem a protegir la seva informació personal. Llegiu atentament aquesta política de privadesa per entendre com tractem la seva informació.
 
 
